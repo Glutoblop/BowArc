@@ -32,7 +32,13 @@ namespace BowArc
         internal static ConfigEntry<float> MaxDistance;
         internal static ConfigEntry<bool> ShowImpactMarker;
 
+        internal static ConfigEntry<bool> ShowAmmoIcon;
+        internal static ConfigEntry<float> AmmoIconSeconds;
+        internal static ConfigEntry<float> AmmoIconSize;
+        internal static ConfigEntry<float> AmmoIconOffset;
+
         private TrajectoryLine _line;
+        private AmmoIcon _icon;
 
         private void Awake()
         {
@@ -40,7 +46,7 @@ namespace BowArc
 
             Enabled = Config.Bind("General", "Enabled", true,
                 "Show a dotted arc predicting where your arrow will fly while you draw a bow.");
-            ShowAtDraw = Config.Bind("General", "ShowAtDrawPercent", 0.75f,
+            ShowAtDraw = Config.Bind("General", "ShowAtDrawPercent", 0.05f,
                 new ConfigDescription("How far the bow must be drawn (0-1) before the arc appears.",
                     new AcceptableValueRange<float>(0f, 1f)));
             MaxDistance = Config.Bind("General", "MaxDistance", 150f,
@@ -57,12 +63,23 @@ namespace BowArc
             ShowImpactMarker = Config.Bind("Look", "ShowImpactMarker", true,
                 "Draw a small ring where the arc hits something.");
 
+            ShowAmmoIcon = Config.Bind("Ammo Icon", "Enabled", true,
+                "Briefly show the icon of your equipped arrows above the crosshair when you start drawing.");
+            AmmoIconSeconds = Config.Bind("Ammo Icon", "Seconds", 1.0f,
+                new ConfigDescription("How long the icon stays fully visible before fading.", new AcceptableValueRange<float>(0.1f, 10f)));
+            AmmoIconSize = Config.Bind("Ammo Icon", "Size", 40f,
+                new ConfigDescription("Icon size in pixels.", new AcceptableValueRange<float>(8f, 256f)));
+            AmmoIconOffset = Config.Bind("Ammo Icon", "OffsetAboveCrosshair", 45f,
+                "How far above the crosshair the icon sits, in pixels.");
+
             _line = gameObject.AddComponent<TrajectoryLine>();
+            _icon = gameObject.AddComponent<AmmoIcon>();
         }
 
         private void OnDestroy()
         {
             if (_line) Destroy(_line);
+            if (_icon) Destroy(_icon);
         }
 
         internal static void Log(string msg) => Instance?.Logger.LogInfo(msg);

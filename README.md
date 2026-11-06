@@ -4,11 +4,12 @@
 
 A BepInEx plugin for Valheim.
 
-A shot-aiming assist for bows. When your bow is nearly fully drawn, a faint dotted arc appears showing where the arrow will fly, with a small ring where it will hit.
+A shot-aiming assist for bows. As soon as you start drawing your bow, a faint dotted arc appears showing where the arrow will fly, with a small ring where it will hit.
 
 ## Features
 - Uses the game's own arrow physics (draw strength, bow and arrow speed, gravity and drag), so the arc follows your actual shot.
-- Appears at 75% draw by default and gets slightly stronger as you reach full draw.
+- Appears almost as soon as you start drawing and gets slightly stronger as you reach full draw. The arc grows as the draw gets stronger.
+- Briefly shows the icon of your equipped arrows just above the crosshair when you start a draw.
 - Stops at the first thing the arrow would hit (ground, buildings, creatures, water) and marks it with a ring.
 - Works with every bow and arrow type, including modded ones that use the vanilla projectile system.
 - The arc follows the middle of your shot. At low skill the arrow's random spread can still pull it a little off the line.
@@ -18,13 +19,17 @@ A shot-aiming assist for bows. When your bow is nearly fully drawn, a faint dott
 | Section | Key | Default | What it does |
 |---|---|---|---|
 | General | Enabled | true | Show the arc. |
-| General | ShowAtDrawPercent | 0.75 | How far the bow must be drawn (0-1) before the arc appears. |
+| General | ShowAtDrawPercent | 0.05 | How far the bow must be drawn (0-1) before the arc appears. |
 | General | MaxDistance | 150 | Longest arc to draw, in metres. |
 | Look | Color | white, alpha 0.35 | Dot colour; the alpha is how see-through the arc is when it first appears. |
 | Look | FullDrawAlpha | 0.55 | Alpha of the dots at full draw. |
 | Look | DotSize | 0.06 | Dot diameter in metres. |
 | Look | DotSpacing | 0.5 | Distance between dots in metres. |
 | Look | ShowImpactMarker | true | Draw a ring where the arc hits something. |
+| Ammo Icon | Enabled | true | Show the equipped arrow icon when a draw starts. |
+| Ammo Icon | Seconds | 1.0 | How long the icon stays fully visible before fading. |
+| Ammo Icon | Size | 40 | Icon size in pixels. |
+| Ammo Icon | OffsetAboveCrosshair | 45 | How far above the crosshair the icon sits, in pixels. |
 
 ## Install
 
