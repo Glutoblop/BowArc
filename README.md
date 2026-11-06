@@ -28,6 +28,9 @@ A shot-aiming assist for bows. As soon as you start drawing your bow, a faint do
 | Look | ShowImpactMarker | true | Draw a ring where the arc hits something. |
 | Ammo Icon | Enabled | true | Show the equipped arrow icon when a draw starts. |
 | Ammo Icon | Seconds | 1.0 | How long the icon stays fully visible before fading. |
+| Ammo Icon | Flash | false | Flash the icon on and off instead of showing it steadily. |
+| Ammo Icon | FlashSeconds | 1.5 | With Flash on: how long it keeps flashing before disappearing (replaces Seconds). |
+| Ammo Icon | FlashesPerSecond | 4 | With Flash on: how fast it flashes. |
 | Ammo Icon | Size | 40 | Icon size in pixels. |
 | Ammo Icon | OffsetAboveCrosshair | 45 | How far above the crosshair the icon sits, in pixels. |
 

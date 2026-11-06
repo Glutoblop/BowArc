@@ -32,16 +32,29 @@ namespace BowArc
 
             if (!_go) return;
             float age = Time.time - _shownAt;
-            float duration = Plugin.AmmoIconSeconds.Value;
-            if (!drawing || age > duration + FadeTime)
+            bool flash = Plugin.AmmoIconFlash.Value;
+            float duration = flash ? Plugin.AmmoIconFlashSeconds.Value : Plugin.AmmoIconSeconds.Value;
+            float end = flash ? duration : duration + FadeTime;
+            if (!drawing || age > end)
             {
                 if (_go.activeSelf) _go.SetActive(false);
                 return;
             }
 
-            float alpha = age < FadeTime ? age / FadeTime                                 // fade in
-                        : age > duration ? 1f - (age - duration) / FadeTime                // fade out
-                        : 1f;
+            float alpha;
+            if (flash)
+            {
+                // Starts visible; a smooth on/off pulse rather than a hard blink.
+                float phase = age * Plugin.AmmoIconFlashRate.Value * 2f * Mathf.PI;
+                alpha = 0.5f + 0.5f * Mathf.Cos(phase);
+                alpha = Mathf.SmoothStep(0f, 1f, alpha);
+            }
+            else
+            {
+                alpha = age < FadeTime ? age / FadeTime                                    // fade in
+                      : age > duration ? 1f - (age - duration) / FadeTime                   // fade out
+                      : 1f;
+            }
             _image.color = new Color(1f, 1f, 1f, Mathf.Clamp01(alpha) * 0.9f);
 
             var rt = (RectTransform)_go.transform;

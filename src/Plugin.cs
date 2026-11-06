@@ -34,6 +34,9 @@ namespace BowArc
 
         internal static ConfigEntry<bool> ShowAmmoIcon;
         internal static ConfigEntry<float> AmmoIconSeconds;
+        internal static ConfigEntry<bool> AmmoIconFlash;
+        internal static ConfigEntry<float> AmmoIconFlashSeconds;
+        internal static ConfigEntry<float> AmmoIconFlashRate;
         internal static ConfigEntry<float> AmmoIconSize;
         internal static ConfigEntry<float> AmmoIconOffset;
 
@@ -67,6 +70,14 @@ namespace BowArc
                 "Briefly show the icon of your equipped arrows above the crosshair when you start drawing.");
             AmmoIconSeconds = Config.Bind("Ammo Icon", "Seconds", 1.0f,
                 new ConfigDescription("How long the icon stays fully visible before fading.", new AcceptableValueRange<float>(0.1f, 10f)));
+            AmmoIconFlash = Config.Bind("Ammo Icon", "Flash", false,
+                "Flash the icon on and off instead of showing it steadily.");
+            AmmoIconFlashSeconds = Config.Bind("Ammo Icon", "FlashSeconds", 1.5f,
+                new ConfigDescription("When Flash is on: how long the icon keeps flashing before it disappears (Seconds is then ignored).",
+                    new AcceptableValueRange<float>(0.1f, 10f)));
+            AmmoIconFlashRate = Config.Bind("Ammo Icon", "FlashesPerSecond", 4f,
+                new ConfigDescription("When Flash is on: how many times per second the icon flashes.",
+                    new AcceptableValueRange<float>(0.5f, 20f)));
             AmmoIconSize = Config.Bind("Ammo Icon", "Size", 40f,
                 new ConfigDescription("Icon size in pixels.", new AcceptableValueRange<float>(8f, 256f)));
             AmmoIconOffset = Config.Bind("Ammo Icon", "OffsetAboveCrosshair", 45f,
