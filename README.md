@@ -15,6 +15,13 @@ A shot-aiming assist for bows. As soon as you start drawing your bow, a faint do
 - The arc follows the middle of your shot. At low skill the arrow's random spread can still pull it a little off the line.
 - Client-side only: nothing is patched or sent to the server, so it works on vanilla servers.
 
+## In-game settings
+**Settings > Gameplay** has two Bow Arc rows at the bottom:
+- **Bow Arc: arrow icon flashes**: flash the arrow icon instead of showing it steadily.
+- **Bow Arc: icon flash time**: how long it flashes (0.2-5 s).
+
+Changes are saved when you press OK. Everything else is in the config file below.
+
 ## Configuration (`BepInEx/config/jordan.valheim.bowarc.cfg`)
 | Section | Key | Default | What it does |
 |---|---|---|---|

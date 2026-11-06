@@ -1,5 +1,6 @@
 using BepInEx;
 using BepInEx.Configuration;
+using HarmonyLib;
 using UnityEngine;
 
 namespace BowArc
@@ -42,6 +43,7 @@ namespace BowArc
 
         private TrajectoryLine _line;
         private AmmoIcon _icon;
+        private Harmony _harmony;
 
         private void Awake()
         {
@@ -85,10 +87,14 @@ namespace BowArc
 
             _line = gameObject.AddComponent<TrajectoryLine>();
             _icon = gameObject.AddComponent<AmmoIcon>();
+
+            _harmony = new Harmony(Guid);
+            _harmony.PatchAll(typeof(Plugin).Assembly);
         }
 
         private void OnDestroy()
         {
+            _harmony?.UnpatchSelf();
             if (_line) Destroy(_line);
             if (_icon) Destroy(_icon);
         }
