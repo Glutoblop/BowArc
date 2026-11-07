@@ -38,7 +38,7 @@ Changes are saved when you press OK. Everything else is in the config file below
 | Ammo Icon | Flash | false | Flash the icon on and off instead of showing it steadily. |
 | Ammo Icon | FlashSeconds | 1.5 | With Flash on: how long it keeps flashing before disappearing (replaces Seconds). |
 | Ammo Icon | FlashesPerSecond | 4 | With Flash on: how fast it flashes. |
-| Ammo Icon | Size | 40 | Icon size in pixels. |
+| Ammo Icon | Size | 80 | Icon size in pixels. |
 | Ammo Icon | OffsetAboveCrosshair | 45 | How far above the crosshair the icon sits, in pixels. |
 
 ## Install

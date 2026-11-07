@@ -80,7 +80,7 @@ namespace BowArc
             AmmoIconFlashRate = Config.Bind("Ammo Icon", "FlashesPerSecond", 4f,
                 new ConfigDescription("When Flash is on: how many times per second the icon flashes.",
                     new AcceptableValueRange<float>(0.5f, 20f)));
-            AmmoIconSize = Config.Bind("Ammo Icon", "Size", 40f,
+            AmmoIconSize = Config.Bind("Ammo Icon", "Size", 80f,
                 new ConfigDescription("Icon size in pixels.", new AcceptableValueRange<float>(8f, 256f)));
             AmmoIconOffset = Config.Bind("Ammo Icon", "OffsetAboveCrosshair", 45f,
                 "How far above the crosshair the icon sits, in pixels.");
