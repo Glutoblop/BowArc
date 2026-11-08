@@ -21,7 +21,7 @@ namespace BowArc
     {
         public const string Guid = "jordan.valheim.bowarc";
         public const string Name = "Bow Arc";
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.2";
 
         internal static Plugin Instance;
         internal static ConfigEntry<bool> Enabled;

@@ -3,7 +3,7 @@
   "id": "BowArc",
   "name": "Bow Arc",
   "guid": "jordan.valheim.bowarc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Glutoblop",
   "description": "Shows a faint dotted arc of where your arrow will fly as you draw your bow, with a ring where it will land.",
   "repo": "Glutoblop/BowArc",
@@ -21,6 +21,7 @@
     "last_tested": "2026-11-06"
   },
   "changelog": {
+    "0.1.2": "Mod Settings button in the pause menu: change this plugin's settings in game (one tab per plugin).",
     "0.1.1": "Double the ammo icon's default size (40 -> 80)",
     "0.1.0": "Initial release: dotted trajectory arc while drawing a bow, appearing almost as soon as you draw, with an impact ring and a brief equipped-arrow icon above the crosshair."
   }
